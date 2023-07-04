@@ -1,0 +1,680 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     31123,        672]
+NotebookOptionsPosition[     30189,        652]
+NotebookOutlinePosition[     30594,        668]
+CellTagsIndexPosition[     30551,        665]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"immsets", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0.00001", ",", "0.0001", ",", "0.0005", ",", "0.001", ",", 
+     "0.003", ",", "0.005", ",", "0.008", ",", "0.01", ",", "0.03", ",", 
+     "0.05", ",", "0.1", ",", "0.5"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"emlist", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0.1", ",", "0.3", ",", "0.5", ",", "0.7", ",", "0.9", ",", 
+     "0.999", ",", "0.999999", ",", "1"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ri", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.4", ",", "0.65", ",", "0.7", ",", "0.75", ",", "1.9", ",", "2"}], 
+    "}"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.856038391796048*^9, 3.8560384048341455`*^9}, {
+   3.856038449694194*^9, 3.8560384502964225`*^9}, {3.8560384821342773`*^9, 
+   3.8560384836185617`*^9}, {3.8563015910977955`*^9, 3.856301604417503*^9}, 
+   3.856341154886935*^9, {3.8563412601380873`*^9, 3.856341323393052*^9}, {
+   3.8564989298618784`*^9, 3.856498950137724*^9}, {3.8571788781908016`*^9, 
+   3.8571789099197435`*^9}},ExpressionUUID->"dd0a1efb-a0d7-47f7-8aa3-\
+1df8c6556e52"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"create", " ", "folder"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"CreateDirectory", "[", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", ",", 
+           RowBox[{"\"\<r_\>\"", "<>", 
+            RowBox[{"ToString", "@", 
+             RowBox[{"ri", "[", 
+              RowBox[{"[", "i", "]"}], "]"}]}]}]}], "}"}], "]"}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Do", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Do", "[", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"CreateDirectory", "[", 
+              RowBox[{"FileNameJoin", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", 
+                 ",", 
+                 RowBox[{"\"\<r_\>\"", "<>", 
+                  RowBox[{"ToString", "@", 
+                   RowBox[{"ri", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+                 RowBox[{"\"\<m_\>\"", "<>", 
+                  RowBox[{"ToString", "@", 
+                   RowBox[{"emlist", "[", 
+                    RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<-imm_\>\"", "<>", 
+                  RowBox[{"ToString", "@", 
+                   RowBox[{"immsets", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}]}]}], "}"}], "]"}], "]"}],
+              ";"}], "\[IndentingNewLine]", ",", 
+            RowBox[{"{", 
+             RowBox[{"j", ",", "1", ",", 
+              RowBox[{"Length", "@", "immsets"}]}], "}"}]}], "]"}], ";"}], 
+         "\[IndentingNewLine]", ",", 
+         RowBox[{"{", 
+          RowBox[{"m", ",", "1", ",", 
+           RowBox[{"Length", "@", "emlist"}]}], "}"}]}], "]"}], ";"}], 
+      "\[IndentingNewLine]", ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"Length", "@", "ri"}]}], "}"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.82530089189952*^9, 3.825301133053856*^9}, {
+   3.8253016414993515`*^9, 3.825301643839122*^9}, {3.825303425404512*^9, 
+   3.8253034291411324`*^9}, {3.825303506753757*^9, 3.8253035216192327`*^9}, {
+   3.8253680711762505`*^9, 3.825368076393882*^9}, {3.825383877522769*^9, 
+   3.8253838784158087`*^9}, {3.825384395226381*^9, 3.8253843963409033`*^9}, {
+   3.8253878160420628`*^9, 3.8253878446925955`*^9}, {3.8254478099211845`*^9, 
+   3.825447880890074*^9}, {3.8262491673703995`*^9, 3.826249254184552*^9}, 
+   3.826249284495405*^9, {3.8262494431632843`*^9, 3.82624946943373*^9}, {
+   3.826407463162305*^9, 3.8264075510013285`*^9}, {3.82640768529701*^9, 
+   3.8264077171968346`*^9}, {3.826407818890651*^9, 3.826407823136894*^9}, {
+   3.826407915750191*^9, 3.826407927231848*^9}, {3.826407963147902*^9, 
+   3.8264079719044027`*^9}, {3.826408009598559*^9, 3.8264080493998356`*^9}, {
+   3.8264080927213135`*^9, 3.8264081077591734`*^9}, 3.826408160769205*^9, {
+   3.826408245398046*^9, 3.826408252305441*^9}, {3.826411032919385*^9, 
+   3.8264110492526135`*^9}, {3.8264123687277355`*^9, 3.826412371181876*^9}, {
+   3.8267665662096453`*^9, 3.826766646577242*^9}, 3.8267667284999275`*^9, {
+   3.826767775294479*^9, 3.826767777462883*^9}, 3.8267678291301737`*^9, {
+   3.827362071880562*^9, 3.8273620718925624`*^9}, {3.829374479529562*^9, 
+   3.829374479545162*^9}, {3.829466339893511*^9, 3.829466339909111*^9}, {
+   3.829466751638836*^9, 3.829466751654436*^9}, {3.8295572950667915`*^9, 
+   3.8295572950823917`*^9}, {3.830335630461282*^9, 3.830335653422595*^9}, {
+   3.830335701899368*^9, 3.830335732116096*^9}, {3.830335770910315*^9, 
+   3.830335804359228*^9}, {3.8303359193678064`*^9, 3.8303359487674875`*^9}, {
+   3.8330130014563246`*^9, 3.8330130151476517`*^9}, {3.8330921990151806`*^9, 
+   3.8330922174119387`*^9}, 3.833092435661484*^9, {3.8370695751448183`*^9, 
+   3.8370695870584993`*^9}, 3.8370696289908977`*^9, {3.8417982395710473`*^9, 
+   3.841798251988669*^9}, 3.8417984484938145`*^9, {3.8417984861894803`*^9, 
+   3.841798486782282*^9}, {3.8431134830472307`*^9, 3.8431135067330728`*^9}, {
+   3.8557758661553097`*^9, 3.8557758663115225`*^9}, {3.8557759548703113`*^9, 
+   3.855775994951763*^9}, {3.8557760885047026`*^9, 3.8557761898748083`*^9}, {
+   3.8557762241447554`*^9, 3.8557762243563857`*^9}, {3.8557762684574957`*^9, 
+   3.8557763187923226`*^9}, {3.8557763814851575`*^9, 3.855776381657001*^9}, {
+   3.855776567960746*^9, 3.855776586798897*^9}, {3.855776616865694*^9, 
+   3.855776630278389*^9}, {3.855776780342075*^9, 3.8557767911459*^9}, {
+   3.855777015855485*^9, 3.8557770159741955`*^9}, {3.856035686744082*^9, 
+   3.8560357140541334`*^9}, {3.856035763211007*^9, 3.8560358335194893`*^9}, {
+   3.856035955885248*^9, 3.8560361286946144`*^9}, {3.8560366591790266`*^9, 
+   3.8560367129878025`*^9}, {3.856036877901778*^9, 3.8560368850185127`*^9}, {
+   3.856036935846961*^9, 3.8560369371561956`*^9}, {3.856037160224739*^9, 
+   3.856037161646287*^9}, {3.8560406210443697`*^9, 3.8560406215382843`*^9}, {
+   3.8563411549025574`*^9, 3.8563411549181786`*^9}, {3.8563412448005466`*^9, 
+   3.8563412448005466`*^9}, {3.897443425700514*^9, 
+   3.8974434299246197`*^9}},ExpressionUUID->"2d4ad724-12e9-4956-a4d7-\
+c6d2278117e8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "create", " ", "i", "*", "j", "*", "k", " ", "LV", " ", "program", " ", 
+    "files"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Do", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"oricode", "=", 
+           RowBox[{"Import", "[", 
+            RowBox[{"FileNameJoin", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+               "\"\<10_species_random_LV_model+immigration-0-0.000001.txt\>\"\
+"}], "}"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"oricode10", "=", 
+           RowBox[{"StringReplace", "[", 
+            RowBox[{"oricode", ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<1801111688/10_species/r_0.1/m_0\>\"", "\[Rule]", 
+               RowBox[{"\"\<1801111688/10_species/r_\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"ri", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}]}]}], "}"}]}], "]"}]}], ";",
+           "\[IndentingNewLine]", 
+          RowBox[{"newcode10", "=", 
+           RowBox[{"StringReplace", "[", 
+            RowBox[{"oricode10", ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<\\\"m\\\": 0,\>\"", "\[Rule]", 
+               RowBox[{"\"\<\\\"m\\\": \>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"emlist", "[", 
+                  RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<,\>\""}]}], 
+              "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"newcode10", "=", 
+           RowBox[{"StringReplace", "[", 
+            RowBox[{"newcode10", ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<m_0-imm_\>\"", "\[Rule]", 
+               RowBox[{"\"\<m_\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"emlist", "[", 
+                  RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<-imm_\>\""}]}],
+               "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"Do", "[", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"newcode1", "=", 
+              RowBox[{"StringReplace", "[", 
+               RowBox[{"newcode10", ",", 
+                RowBox[{"{", 
+                 RowBox[{"\"\<\\\"imm\\\": 0.000001\>\"", "\[Rule]", 
+                  RowBox[{"\"\<\\\"imm\\\": \>\"", "<>", 
+                   RowBox[{"ToString", "@", 
+                    RowBox[{"immsets", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}]}]}], "}"}]}], "]"}]}], 
+             ";", "\[IndentingNewLine]", 
+             RowBox[{"newcode2", "=", 
+              RowBox[{"StringReplace", "[", 
+               RowBox[{"newcode1", ",", 
+                RowBox[{"{", 
+                 RowBox[{"\"\<-imm_0.000001\>\"", "\[Rule]", 
+                  RowBox[{"\"\<-imm_\>\"", "<>", 
+                   RowBox[{"ToString", "@", 
+                    RowBox[{"immsets", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}]}]}], "}"}]}], "]"}]}], 
+             ";", "\[IndentingNewLine]", 
+             RowBox[{"Export", "[", 
+              RowBox[{
+               RowBox[{"FileNameJoin", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", 
+                  ",", 
+                  RowBox[{"\"\<r_\>\"", "<>", 
+                   RowBox[{"ToString", "@", 
+                    RowBox[{"ri", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+                  RowBox[{"\"\<10_species_random_LV_model+immigration-\>\"", "<>", 
+                   RowBox[{"ToString", "@", 
+                    RowBox[{"emlist", "[", 
+                    RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<-\>\"", "<>", 
+                   RowBox[{"ToString", "@", 
+                    RowBox[{"immsets", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "<>", 
+                   "\"\<.txt\>\""}]}], "}"}], "]"}], ",", "newcode2"}], "]"}],
+              ";", "\[IndentingNewLine]", 
+             RowBox[{"RenameFile", "[", 
+              RowBox[{
+               RowBox[{"FileNameJoin", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", 
+                  ",", 
+                  RowBox[{"\"\<r_\>\"", "<>", 
+                   RowBox[{"ToString", "@", 
+                    RowBox[{"ri", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+                  RowBox[{"\"\<10_species_random_LV_model+immigration-\>\"", "<>", 
+                   RowBox[{"ToString", "@", 
+                    RowBox[{"emlist", "[", 
+                    RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<-\>\"", "<>", 
+                   RowBox[{"ToString", "@", 
+                    RowBox[{"immsets", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "<>", 
+                   "\"\<.txt\>\""}]}], "}"}], "]"}], ",", 
+               RowBox[{"FileNameJoin", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", 
+                  ",", 
+                  RowBox[{"\"\<r_\>\"", "<>", 
+                   RowBox[{"ToString", "@", 
+                    RowBox[{"ri", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+                  RowBox[{"\"\<10_species_random_LV_model+immigration-\>\"", "<>", 
+                   RowBox[{"ToString", "@", 
+                    RowBox[{"emlist", "[", 
+                    RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<-\>\"", "<>", 
+                   RowBox[{"ToString", "@", 
+                    RowBox[{"immsets", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "<>", "\"\<.py\>\""}]}],
+                  "}"}], "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", ",", 
+            RowBox[{"{", 
+             RowBox[{"j", ",", "1", ",", 
+              RowBox[{"Length", "@", "immsets"}]}], "}"}]}], "]"}], ";"}], 
+         "\[IndentingNewLine]", ",", 
+         RowBox[{"{", 
+          RowBox[{"m", ",", "1", ",", 
+           RowBox[{"Length", "@", "emlist"}]}], "}"}]}], "]"}], ";"}], 
+      "\[IndentingNewLine]", ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"Length", "@", "ri"}]}], "}"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"create", " ", "m", "*", "i", " ", "program", " ", "files"}], 
+     ",", " ", 
+     RowBox[{"which", " ", "are", " ", "shannon_index", "_adjusted"}]}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "\:6ce8", "\:ff1a", 
+     "\:9700\:8981\:628a\:8fc1\:5165\:90fd\:6539\:597d\:518d\:6267\:884c\:6b64\
+\:7a0b\:5e8f"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Do", "[", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"oricode", "=", 
+           RowBox[{"Import", "[", 
+            RowBox[{"FileNameJoin", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+               "\"\<shannon_index_adjusted.txt\>\""}], "}"}], "]"}], "]"}]}], 
+          ";", "\[IndentingNewLine]", 
+          RowBox[{"newcode10", "=", 
+           RowBox[{"StringReplace", "[", 
+            RowBox[{"oricode", ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<1801111688/10_species/r_0.1\>\"", "\[Rule]", 
+               RowBox[{"\"\<1801111688/10_species/r_\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"ri", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}]}]}], "}"}]}], "]"}]}], ";",
+           "\[IndentingNewLine]", 
+          RowBox[{"newcode2", "=", 
+           RowBox[{"StringReplace", "[", 
+            RowBox[{"newcode10", ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<m_0-imm_\>\"", "\[Rule]", 
+               RowBox[{"\"\<m_\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"emlist", "[", 
+                  RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<-imm_\>\""}]}],
+               "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"Export", "[", 
+           RowBox[{
+            RowBox[{"FileNameJoin", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", 
+               ",", 
+               RowBox[{"\"\<r_\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"ri", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+               RowBox[{"\"\<shannon_index_adjusted-\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"emlist", "[", 
+                  RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<.txt\>\""}]}], 
+              "}"}], "]"}], ",", "newcode2"}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"RenameFile", "[", 
+           RowBox[{
+            RowBox[{"FileNameJoin", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", 
+               ",", 
+               RowBox[{"\"\<r_\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"ri", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+               RowBox[{"\"\<shannon_index_adjusted-\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"emlist", "[", 
+                  RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<.txt\>\""}]}], 
+              "}"}], "]"}], ",", 
+            RowBox[{"FileNameJoin", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", 
+               ",", 
+               RowBox[{"\"\<r_\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"ri", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+               RowBox[{"\"\<shannon_index_adjusted-\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"emlist", "[", 
+                  RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<.py\>\""}]}], 
+              "}"}], "]"}]}], "]"}], ";"}], 
+         RowBox[{"(*", 
+          RowBox[{
+          "\:521b\:5efa\:548c\:8bfb\:53d6\:6587\:4ef6\:65f6", "\:ff0c", 
+           RowBox[{"mathematica\:80fd\:8bc6\:522b", "\"\<.txt\>\""}], ",", 
+           RowBox[{"\:4f46\:4e0d\:80fd\:8bc6\:522b", "\"\<.gro\>\""}], 
+           "\:3002", 
+           RowBox[{
+           "\:56e0\:6b64\:9700\:8981\:628amathematic\:521b\:5efa", 
+            "\"\<.txt\>\"", "\:6587\:4ef6\:91cd\:547d\:540d\:4e3a", 
+            "\"\<.gro\>\""}], "\:ff0c", 
+           "\:7528\:4e8e\:540e\:7eedgro\:8fd0\:884c\:65f6\:8bfb\:53d6\:6587\
+\:4ef6"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", ",", 
+         RowBox[{"{", 
+          RowBox[{"m", ",", "1", ",", 
+           RowBox[{"Length", "@", "emlist"}]}], "}"}]}], "]"}], ";"}], 
+      "\[IndentingNewLine]", ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"Length", "@", "ri"}]}], "}"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.841798852763325*^9, 3.84179891795584*^9}, 
+   3.855775866873893*^9, {3.855776224809441*^9, 3.8557762250125027`*^9}, {
+   3.855776269090721*^9, 3.8557762900253353`*^9}, {3.8557763821771035`*^9, 
+   3.8557763824193535`*^9}, {3.8557770164958706`*^9, 
+   3.8557770167926826`*^9}, {3.8557789570616217`*^9, 
+   3.8557790007697167`*^9}, {3.855779043205256*^9, 3.855779090861163*^9}, {
+   3.8557801228200865`*^9, 3.8557801257453127`*^9}, {3.855780190294016*^9, 
+   3.8557801991099496`*^9}, {3.8557802319707513`*^9, 3.855780283374442*^9}, {
+   3.855780315633506*^9, 3.8557803349158354`*^9}, 3.8557803966177826`*^9, {
+   3.855780552406751*^9, 3.8557805865896287`*^9}, 3.85603778166037*^9, {
+   3.856039057680051*^9, 3.8560390910274754`*^9}, 3.856039472464219*^9, {
+   3.8560395352270837`*^9, 3.8560395525613666`*^9}, {3.8560399065453577`*^9, 
+   3.856039923704559*^9}, 3.85604006521632*^9, {3.856040480545184*^9, 
+   3.856040482635166*^9}, {3.856040635552832*^9, 3.8560406505385323`*^9}, 
+   3.856041753962943*^9, 3.8561689196848593`*^9, {3.85634115494942*^9, 
+   3.856341155175548*^9}, {3.856341220111473*^9, 3.8563412449254866`*^9}, {
+   3.8974434436118383`*^9, 3.897443455905117*^9}, {3.897443487956492*^9, 
+   3.897443562571892*^9}},ExpressionUUID->"4545aaa7-099b-41e3-927f-\
+0ad8fdea2309"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"create", " ", "m", "*", "i", " ", "program", " ", "files"}], ",",
+     " ", 
+    RowBox[{
+    "which", " ", "are", " ", "Extract_multiple", "_tables", "_into", 
+     "_one"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Do", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Do", "[", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"oricode", "=", 
+          RowBox[{"Import", "[", 
+           RowBox[{"FileNameJoin", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+              "\"\<Extract_multiple_tables_into_one.txt\>\""}], "}"}], "]"}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"newcode10", "=", 
+          RowBox[{"StringReplace", "[", 
+           RowBox[{"oricode", ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<1801111688/10_species/r_0.1\>\"", "\[Rule]", 
+              RowBox[{"\"\<1801111688/10_species/r_\>\"", "<>", 
+               RowBox[{"ToString", "@", 
+                RowBox[{"ri", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}]}]}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"newcode2", "=", 
+          RowBox[{"StringReplace", "[", 
+           RowBox[{"newcode10", ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<m_0-imm_\>\"", "\[Rule]", 
+              RowBox[{"\"\<m_\>\"", "<>", 
+               RowBox[{"ToString", "@", 
+                RowBox[{"emlist", "[", 
+                 RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<-imm_\>\""}]}], 
+             "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Export", "[", 
+          RowBox[{
+           RowBox[{"FileNameJoin", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", ",", 
+              RowBox[{"\"\<r_\>\"", "<>", 
+               RowBox[{"ToString", "@", 
+                RowBox[{"ri", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+              RowBox[{"\"\<Extract_multiple_tables_into_one-\>\"", "<>", 
+               RowBox[{"ToString", "@", 
+                RowBox[{"emlist", "[", 
+                 RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<.txt\>\""}]}], 
+             "}"}], "]"}], ",", "newcode2"}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"RenameFile", "[", 
+          RowBox[{
+           RowBox[{"FileNameJoin", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", ",", 
+              RowBox[{"\"\<r_\>\"", "<>", 
+               RowBox[{"ToString", "@", 
+                RowBox[{"ri", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+              RowBox[{"\"\<Extract_multiple_tables_into_one-\>\"", "<>", 
+               RowBox[{"ToString", "@", 
+                RowBox[{"emlist", "[", 
+                 RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<.txt\>\""}]}], 
+             "}"}], "]"}], ",", 
+           RowBox[{"FileNameJoin", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", ",", 
+              RowBox[{"\"\<r_\>\"", "<>", 
+               RowBox[{"ToString", "@", 
+                RowBox[{"ri", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+              RowBox[{"\"\<Extract_multiple_tables_into_one-\>\"", "<>", 
+               RowBox[{"ToString", "@", 
+                RowBox[{"emlist", "[", 
+                 RowBox[{"[", "m", "]"}], "]"}]}], "<>", "\"\<.py\>\""}]}], 
+             "}"}], "]"}]}], "]"}], ";"}], 
+        RowBox[{"(*", 
+         RowBox[{"\:521b\:5efa\:548c\:8bfb\:53d6\:6587\:4ef6\:65f6", "\:ff0c", 
+          RowBox[{"mathematica\:80fd\:8bc6\:522b", "\"\<.txt\>\""}], ",", 
+          RowBox[{"\:4f46\:4e0d\:80fd\:8bc6\:522b", "\"\<.gro\>\""}], 
+          "\:3002", 
+          RowBox[{
+          "\:56e0\:6b64\:9700\:8981\:628amathematic\:521b\:5efa", 
+           "\"\<.txt\>\"", "\:6587\:4ef6\:91cd\:547d\:540d\:4e3a", 
+           "\"\<.gro\>\""}], "\:ff0c", 
+          "\:7528\:4e8e\:540e\:7eedgro\:8fd0\:884c\:65f6\:8bfb\:53d6\:6587\
+\:4ef6"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", ",", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", "1", ",", 
+          RowBox[{"Length", "@", "emlist"}]}], "}"}]}], "]"}], ";"}], 
+     "\[IndentingNewLine]", ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "@", "ri"}]}], "}"}]}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.856341155206791*^9, 3.856341155253658*^9}, {
+  3.856341220158337*^9, 3.8563412449723473`*^9}, {3.897443572679618*^9, 
+  3.897443607274106*^9}},ExpressionUUID->"a7a00aa0-7c2f-41c6-a4b3-\
+bc655d22d46d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"create", " ", "i", "*", "m", " ", "program", " ", "files"}], ",",
+     " ", 
+    RowBox[{"which", " ", "are", " ", "hpc_LV", 
+     RowBox[{"_model", ".", "sh"}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Do", "[", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"oricode", "=", 
+           RowBox[{"Import", "[", 
+            RowBox[{"FileNameJoin", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+               "\"\<hpc_LV_model.txt\>\""}], "}"}], "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"newcode10", "=", 
+           RowBox[{"StringReplace", "[", 
+            RowBox[{"oricode", ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<random_LV_model+immigration-0\>\"", "\[Rule]", 
+               RowBox[{"\"\<random_LV_model+immigration-\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"emlist", "[", 
+                  RowBox[{"[", "m", "]"}], "]"}]}]}]}], "}"}]}], "]"}]}], ";",
+           "\[IndentingNewLine]", 
+          RowBox[{"Export", "[", 
+           RowBox[{
+            RowBox[{"FileNameJoin", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", 
+               ",", 
+               RowBox[{"\"\<r_\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"ri", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+               RowBox[{"\"\<hpc_LV_model_\>\"", "<>", 
+                RowBox[{"ToString", "@", "m"}], "<>", "\"\<.txt\>\""}]}], 
+              "}"}], "]"}], ",", "newcode10"}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"RenameFile", "[", 
+           RowBox[{
+            RowBox[{"FileNameJoin", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", 
+               ",", 
+               RowBox[{"\"\<r_\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"ri", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+               RowBox[{"\"\<hpc_LV_model_\>\"", "<>", 
+                RowBox[{"ToString", "@", "m"}], "<>", "\"\<.txt\>\""}]}], 
+              "}"}], "]"}], ",", 
+            RowBox[{"FileNameJoin", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<ri\>\"", 
+               ",", 
+               RowBox[{"\"\<r_\>\"", "<>", 
+                RowBox[{"ToString", "@", 
+                 RowBox[{"ri", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+               RowBox[{"\"\<hpc_LV_model_\>\"", "<>", 
+                RowBox[{"ToString", "@", "m"}], "<>", "\"\<.sh\>\""}]}], 
+              "}"}], "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+         "\[IndentingNewLine]", ",", 
+         RowBox[{"{", 
+          RowBox[{"m", ",", "1", ",", 
+           RowBox[{"Length", "@", "emlist"}]}], "}"}]}], "]"}], ";"}], 
+      "\[IndentingNewLine]", ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"Length", "@", "ri"}]}], "}"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.8560417661475353`*^9, 3.8560418333810215`*^9}, {
+   3.8560419648767805`*^9, 3.856042079599618*^9}, {3.8560431834814377`*^9, 
+   3.8560431926028147`*^9}, 3.8560434424217*^9, {3.8560435057457323`*^9, 
+   3.8560436761734915`*^9}, 3.856043730451473*^9, {3.8560439002052336`*^9, 
+   3.8560439295777664`*^9}, {3.8560441713208437`*^9, 
+   3.8560442554892645`*^9}, {3.856044311967844*^9, 3.856044342827228*^9}, {
+   3.856044595797222*^9, 3.856044630790327*^9}, {3.8560446668428397`*^9, 
+   3.8560446675245714`*^9}, {3.856044702341292*^9, 3.8560448713999634`*^9}, {
+   3.8560449578602514`*^9, 3.8560449620871534`*^9}, {3.8560451438656435`*^9, 
+   3.8560452021410227`*^9}, {3.8563411552899075`*^9, 3.856341155332686*^9}, {
+   3.856341244988001*^9, 3.8563412450035915`*^9}, {3.8974436138540983`*^9, 
+   3.8974436686425858`*^9}},ExpressionUUID->"b7cb54f2-d9ea-4685-97e5-\
+9c6059adc99c"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.855780901234784*^9, 3.855780930089117*^9}, {
+   3.8557811626187305`*^9, 3.855781248327853*^9}, 3.8557812840015*^9, {
+   3.8557813266667085`*^9, 3.855781370514201*^9}, {3.8560397988240023`*^9, 
+   3.856039804659357*^9}, {3.856039978338491*^9, 3.8560399876854734`*^9}, {
+   3.856040034666093*^9, 3.856040057384486*^9}, {3.856040093731892*^9, 
+   3.8560401213819494`*^9}, {3.8560405111906047`*^9, 3.8560405134275694`*^9}, 
+   3.8560406429154267`*^9},ExpressionUUID->"bc072bfb-6d73-45e2-8778-\
+e138db02fe83"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.825494561387782*^9, 3.825494570356062*^9}, {
+  3.82549484040614*^9, 3.825494841842147*^9}, {3.8254948796461563`*^9, 
+  3.825494880581017*^9}, {3.825495103274754*^9, 
+  3.8254951037937717`*^9}},ExpressionUUID->"71fa3d1c-cfbb-4751-ae87-\
+2b4c0c38227d"]
+},
+WindowSize->{1280, 637},
+WindowMargins->{{-8, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (2023\:5e741\:670830\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"66f2b1d5-6e9b-4d20-a8fe-d25e3d3215ef"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1162, 27, 73, "Input",ExpressionUUID->"dd0a1efb-a0d7-47f7-8aa3-1df8c6556e52"],
+Cell[1723, 49, 5447, 98, 361, "Input",ExpressionUUID->"2d4ad724-12e9-4956-a4d7-c6d2278117e8"],
+Cell[7173, 149, 12881, 275, 1278, "Input",ExpressionUUID->"4545aaa7-099b-41e3-927f-0ad8fdea2309"],
+Cell[20057, 426, 4878, 109, 481, "Input",ExpressionUUID->"a7a00aa0-7c2f-41c6-a4b3-bc655d22d46d"],
+Cell[24938, 537, 4389, 96, 439, "Input",ExpressionUUID->"b7cb54f2-d9ea-4685-97e5-9c6059adc99c"],
+Cell[29330, 635, 553, 8, 30, "Input",ExpressionUUID->"bc072bfb-6d73-45e2-8778-e138db02fe83"],
+Cell[29886, 645, 299, 5, 30, "Input",ExpressionUUID->"71fa3d1c-cfbb-4751-ae87-2b4c0c38227d"]
+}
+]
+*)
+

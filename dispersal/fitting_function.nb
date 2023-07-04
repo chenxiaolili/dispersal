@@ -1,0 +1,450 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17777,        442]
+NotebookOptionsPosition[     16874,        419]
+NotebookOutlinePosition[     17278,        435]
+CellTagsIndexPosition[     17235,        432]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"data1", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+          "\"\<shannon-20_species_all_tables.csv\>\""}], "}"}], "]"}], ",", 
+       "\"\<Data\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"data2", "=", 
+     RowBox[{"Select", "[", 
+      RowBox[{"data1", ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "9", "]"}], "]"}], ">", "0"}], " ", "&"}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"stabledata", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"data2", "[", 
+          RowBox[{"[", 
+           RowBox[{"m", ",", "9"}], "]"}], "]"}], ",", 
+         RowBox[{"data2", "[", 
+          RowBox[{"[", 
+           RowBox[{"m", ",", "8"}], "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"m", ",", 
+         RowBox[{"Length", "@", "data2"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"biofit", "=", 
+     RowBox[{"NonlinearModelFit", "[", 
+      RowBox[{"stabledata", ",", 
+       RowBox[{"{", 
+        RowBox[{"b", "+", 
+         RowBox[{"c", "/", 
+          RowBox[{"Tan", "[", 
+           RowBox[{
+            RowBox[{"a", "*", "x"}], "+", "d"}], "]"}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}], ",", 
+       RowBox[{"{", "x", "}"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"fitplot", "=", 
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"biofit", "[", "x", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "1.2"}], "}"}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"RGBColor", "[", 
+             RowBox[{
+              RowBox[{"196", "/", "255"}], ",", 
+              RowBox[{"151", "/", "255"}], ",", 
+              RowBox[{"225", "/", "255"}]}], "]"}], ",", 
+            RowBox[{"Thickness", "[", "0.01", "]"}], ",", 
+            RowBox[{"Dashing", "[", "0.05", "]"}]}], "}"}]}], ",", 
+         RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+         RowBox[{"FrameTicks", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"{", 
+            RowBox[{"Automatic", ",", "None"}], "}"}], "}"}]}], ",", 
+         RowBox[{"AspectRatio", "\[Rule]", "0.75"}], ",", 
+         RowBox[{"FrameStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{
+            RowBox[{"Thickness", "[", "0.005", "]"}], ",", "30"}], "]"}]}], 
+         ",", 
+         RowBox[{"LabelStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"Black", ",", "30"}], "]"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "500"}]}], "]"}], ",", 
+       RowBox[{"ListPlot", "[", 
+        RowBox[{"stabledata", ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"RGBColor", "[", 
+             RowBox[{
+              RowBox[{"246", "/", "255"}], ",", 
+              RowBox[{"66", "/", "255"}], ",", 
+              RowBox[{"65", "/", "255"}]}], "]"}], ",", 
+            RowBox[{"PointSize", "[", "Large", "]"}]}], "}"}]}], ",", 
+         RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+         RowBox[{"PlotLegends", "\[Rule]", "Automatic"}], ",", 
+         RowBox[{"FrameTicks", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"Automatic", ",", "None"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"#", ",", 
+                  RowBox[{"ScientificForm", "@", 
+                   RowBox[{"Chop", "@", "#"}]}]}], "}"}], "&"}], "/@", 
+               RowBox[{"Range", "[", 
+                RowBox[{"0.", ",", "10000", ",", "2000"}], "]"}]}], ",", 
+              "None"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+         RowBox[{"FrameStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{
+            RowBox[{"Thickness", "[", "0.005", "]"}], ",", "30"}], "]"}]}], 
+         ",", 
+         RowBox[{"LabelStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"Black", ",", "30"}], "]"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}], ",", 
+       RowBox[{"FrameLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Interaction strength\>\"", ",", 
+          "\"\<Immigration biomass (lg)\>\""}], "}"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+         RowBox[{
+         "\"\<fitplot-\>\"", "<>", 
+          "\"\<Inflection point of immigration biomass_the interaction \
+strength-1.pdf\>\""}]}], "}"}], "]"}], ",", "fitplot"}], "]"}], ";"}], "\n", 
+   RowBox[{"Normal", "[", "biofit", "]"}], "\[IndentingNewLine]", 
+   RowBox[{"biofit", "[", 
+    RowBox[{"{", 
+     RowBox[{"\"\<AdjustedRSquared\>\"", ",", "\"\<ParameterPValues\>\""}], 
+     "}"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.857429045850108*^9, 3.8574291268548284`*^9}, {
+   3.857429325603497*^9, 3.8574293348423185`*^9}, {3.8574293932171*^9, 
+   3.8574293983515415`*^9}, {3.8574452939827642`*^9, 
+   3.8574452974895515`*^9}, {3.857445355639612*^9, 3.857445361333993*^9}, {
+   3.857445460751309*^9, 3.8574454741531277`*^9}, {3.857446520254081*^9, 
+   3.8574465207038784`*^9}, 3.857446675380815*^9, {3.857465995469552*^9, 
+   3.8574659974680357`*^9}, {3.897446127333519*^9, 
+   3.8974461356879797`*^9}},ExpressionUUID->"8e762a02-6f72-448e-896f-\
+ec72a701efd5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "2.231405015874191`"}], "+", 
+  RowBox[{"0.36898221540783327`", " ", 
+   RowBox[{"Cot", "[", 
+    RowBox[{"0.41220967572555156`", "\[VeryThinSpace]", "+", 
+     RowBox[{"2.299469510929437`", " ", "x"}]}], "]"}]}]}]], "Output",
+ CellChangeTimes->{
+  3.8574291314862747`*^9, 3.857445436196519*^9, {3.857445467723666*^9, 
+   3.8574455026439085`*^9}, 3.8574465247036667`*^9, 3.857446753251603*^9, 
+   3.857466008432165*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"6cb483cd-e94e-465a-a664-b76e2591273c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.9993550804076405`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "1.0543261953264365`*^-112", ",", "1.9886170312573612`*^-148", ",", 
+     "3.49804594626141`*^-59", ",", "8.506473922008696`*^-39"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.8574291314862747`*^9, 3.857445436196519*^9, {3.857445467723666*^9, 
+   3.8574455026439085`*^9}, 3.8574465247036667`*^9, 3.857446753251603*^9, 
+   3.857466008440173*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"d7388cd0-2f41-498b-9535-95badab3f792"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"data1", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+          "\"\<shannon-20_species_all_tables.csv\>\""}], "}"}], "]"}], ",", 
+       "\"\<Data\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"data2", "=", 
+     RowBox[{"Select", "[", 
+      RowBox[{"data1", ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "9", "]"}], "]"}], ">", "0"}], " ", "&"}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"stabledata", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"data2", "[", 
+          RowBox[{"[", 
+           RowBox[{"m", ",", "8"}], "]"}], "]"}], ",", 
+         RowBox[{"data2", "[", 
+          RowBox[{"[", 
+           RowBox[{"m", ",", "9"}], "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"m", ",", 
+         RowBox[{"Length", "@", "data2"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"biofit", "=", 
+     RowBox[{"NonlinearModelFit", "[", 
+      RowBox[{"stabledata", ",", 
+       RowBox[{"{", 
+        RowBox[{"b", "+", 
+         RowBox[{"c", "/", 
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            RowBox[{"Exp", "[", 
+             RowBox[{
+              RowBox[{"a", "*", "x"}], "+", "d"}], "]"}]}], ")"}]}]}], "}"}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}], ",", 
+       RowBox[{"{", "x", "}"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"fitplot", "=", 
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"biofit", "[", "x", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"-", "4"}], ",", "0"}], "}"}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"RGBColor", "[", 
+             RowBox[{
+              RowBox[{"196", "/", "255"}], ",", 
+              RowBox[{"151", "/", "255"}], ",", 
+              RowBox[{"225", "/", "255"}]}], "]"}], ",", 
+            RowBox[{"Thickness", "[", "0.01", "]"}], ",", 
+            RowBox[{"Dashing", "[", "0.05", "]"}]}], "}"}]}], ",", 
+         RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+         RowBox[{"FrameTicks", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"{", 
+            RowBox[{"Automatic", ",", "None"}], "}"}], "}"}]}], ",", 
+         RowBox[{"AspectRatio", "\[Rule]", "0.75"}], ",", 
+         RowBox[{"FrameStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{
+            RowBox[{"Thickness", "[", "0.005", "]"}], ",", "30"}], "]"}]}], 
+         ",", 
+         RowBox[{"LabelStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"Black", ",", "30"}], "]"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "500"}]}], "]"}], ",", 
+       RowBox[{"ListPlot", "[", 
+        RowBox[{"stabledata", ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"RGBColor", "[", 
+             RowBox[{
+              RowBox[{"246", "/", "255"}], ",", 
+              RowBox[{"66", "/", "255"}], ",", 
+              RowBox[{"65", "/", "255"}]}], "]"}], ",", 
+            RowBox[{"PointSize", "[", "Large", "]"}]}], "}"}]}], ",", 
+         RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+         RowBox[{"PlotLegends", "\[Rule]", "Automatic"}], ",", 
+         RowBox[{"FrameTicks", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"Automatic", ",", "None"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"#", ",", 
+                  RowBox[{"ScientificForm", "@", 
+                   RowBox[{"Chop", "@", "#"}]}]}], "}"}], "&"}], "/@", 
+               RowBox[{"Range", "[", 
+                RowBox[{"0.", ",", "10000", ",", "2000"}], "]"}]}], ",", 
+              "None"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+         RowBox[{"FrameStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{
+            RowBox[{"Thickness", "[", "0.005", "]"}], ",", "30"}], "]"}]}], 
+         ",", 
+         RowBox[{"LabelStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"Black", ",", "30"}], "]"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}], ",", 
+       RowBox[{"FrameLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Immigration biomass (lg)\>\"", ",", 
+          "\"\<Interaction strength\>\""}], "}"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+         RowBox[{
+         "\"\<fitplot-\>\"", "<>", 
+          "\"\<Inflection point of immigration biomass_the interaction \
+strength.pdf\>\""}]}], "}"}], "]"}], ",", "fitplot"}], "]"}], ";"}], "\n", 
+   RowBox[{"Normal", "[", "biofit", "]"}], "\[IndentingNewLine]", 
+   RowBox[{"biofit", "[", 
+    RowBox[{"{", 
+     RowBox[{"\"\<AdjustedRSquared\>\"", ",", "\"\<ParameterPValues\>\""}], 
+     "}"}], "]"}], "\[IndentingNewLine]", "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.844567778243992*^9, 3.8445678085367165`*^9}, {
+   3.8445678423907075`*^9, 3.844567882842738*^9}, {3.844574959576832*^9, 
+   3.844574971755001*^9}, {3.844596049296142*^9, 3.8445960547390785`*^9}, {
+   3.8445961501607456`*^9, 3.844596161086018*^9}, 3.8445962011230774`*^9, {
+   3.844596247108494*^9, 3.844596274730157*^9}, {3.844596467785861*^9, 
+   3.8445965467764006`*^9}, {3.8445965971992044`*^9, 3.844596597773099*^9}, {
+   3.844596707929169*^9, 3.844596734121608*^9}, 3.8445967863574734`*^9, {
+   3.844596848407891*^9, 3.844596853565125*^9}, {3.844660698188018*^9, 
+   3.8446607390138626`*^9}, 3.857161546502129*^9, 3.8571624121066113`*^9, {
+   3.8571624613839006`*^9, 3.857162555412367*^9}, {3.8571625874384723`*^9, 
+   3.8571626677851086`*^9}, {3.8571627592180233`*^9, 3.857162774750181*^9}, 
+   3.8571629542430863`*^9, {3.85716314200869*^9, 3.857163144548662*^9}, {
+   3.8571633050190372`*^9, 3.857163305426793*^9}, {3.8571633406011887`*^9, 
+   3.8571633498215294`*^9}, 3.857163812531449*^9, {3.857163928259383*^9, 
+   3.85716402357226*^9}, {3.857164172797372*^9, 3.8571642559268627`*^9}, {
+   3.8571642887191353`*^9, 3.8571642984392614`*^9}, {3.857164339785723*^9, 
+   3.857164408616951*^9}, {3.857165329214821*^9, 3.857165329667842*^9}, {
+   3.8571709901181316`*^9, 3.8571710251723113`*^9}, {3.8571710590667553`*^9, 
+   3.857171087673003*^9}, {3.8571712756706133`*^9, 3.8571712763668303`*^9}, {
+   3.8571713113942204`*^9, 3.857171332671132*^9}, {3.8571716935402737`*^9, 
+   3.8571717127856765`*^9}, {3.8571717446969814`*^9, 3.857171748792755*^9}, {
+   3.857172262183573*^9, 3.857172307510056*^9}, {3.857383628903863*^9, 
+   3.857383635578804*^9}, {3.8574289910895753`*^9, 3.857429018502576*^9}, {
+   3.8574428741339235`*^9, 3.8574429228508058`*^9}, {3.857443084474228*^9, 
+   3.857443088066312*^9}, 3.8574444206763*^9, {3.857444687130967*^9, 
+   3.8574446889720592`*^9}, {3.8574466594413843`*^9, 
+   3.8574466679832463`*^9}, {3.8574467289850135`*^9, 3.857446736625882*^9}, {
+   3.897446164542418*^9, 
+   3.89744617105173*^9}},ExpressionUUID->"8cfbcc6f-9dd1-4893-800a-\
+77f1bb86ca79"],
+
+Cell[BoxData[
+ RowBox[{"0.010142027509074798`", "\[VeryThinSpace]", "+", 
+  FractionBox["1.0563983588542272`", 
+   RowBox[{"1", "+", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"11.39888109107955`", "\[VeryThinSpace]", "+", 
+      RowBox[{"5.024715460623825`", " ", "x"}]}]]}]]}]], "Output",
+ CellChangeTimes->{{3.8571710081920795`*^9, 3.857171028914181*^9}, 
+   3.857171091235796*^9, {3.8571713390610833`*^9, 3.8571713503991966`*^9}, 
+   3.857171715108633*^9, 3.8571717514602013`*^9, 3.857383569979871*^9, 
+   3.857441174330346*^9, 3.85744309751628*^9, 3.85744443083958*^9, 
+   3.8574447029571285`*^9, 3.8574467419821053`*^9},
+ CellLabel->"Out[38]=",ExpressionUUID->"c2914ec1-ea3b-41ff-a933-052cac7e421d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.9992125946135108`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "1.0038927145819301`*^-83", ",", "0.07070796768974838`", ",", 
+     "1.5437353453230117`*^-133", ",", "1.640739836147885`*^-82"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.8571710081920795`*^9, 3.857171028914181*^9}, 
+   3.857171091235796*^9, {3.8571713390610833`*^9, 3.8571713503991966`*^9}, 
+   3.857171715108633*^9, 3.8571717514602013`*^9, 3.857383569979871*^9, 
+   3.857441174330346*^9, 3.85744309751628*^9, 3.85744443083958*^9, 
+   3.8574447029571285`*^9, 3.857446741987256*^9},
+ CellLabel->"Out[39]=",ExpressionUUID->"1bf31bef-5f20-4b9a-901d-1afb622f0f61"]
+}, Open  ]]
+},
+WindowSize->{1264, 661},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (2023\:5e741\:670830\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"0f7c941c-7c97-4a85-b6b9-f77d136b4091"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 6032, 154, 520, "Input",ExpressionUUID->"8e762a02-6f72-448e-896f-ec72a701efd5"],
+Cell[6615, 178, 536, 11, 34, "Output",ExpressionUUID->"6cb483cd-e94e-465a-a664-b76e2591273c"],
+Cell[7154, 191, 536, 12, 37, "Output",ExpressionUUID->"d7388cd0-2f41-498b-9535-95badab3f792"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7727, 208, 7735, 179, 562, "Input",ExpressionUUID->"8cfbcc6f-9dd1-4893-800a-77f1bb86ca79"],
+Cell[15465, 389, 715, 12, 52, "Output",ExpressionUUID->"c2914ec1-ea3b-41ff-a933-052cac7e421d"],
+Cell[16183, 403, 675, 13, 37, "Output",ExpressionUUID->"1bf31bef-5f20-4b9a-901d-1afb622f0f61"]
+}, Open  ]]
+}
+]
+*)
+

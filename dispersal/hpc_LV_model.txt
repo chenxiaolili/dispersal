@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH -o job.%j.out
+#SBATCH -p C032M0128G
+#SBATCH --qos=high
+#SBATCH -J My_Job
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+
+python 10_species_random_LV_model+immigration-0-0.py
+python 10_species_random_LV_model+immigration-0-0.00001.py
+python 10_species_random_LV_model+immigration-0-0.0001.py
+python 10_species_random_LV_model+immigration-0-0.0005.py
+python 10_species_random_LV_model+immigration-0-0.001.py
+python 10_species_random_LV_model+immigration-0-0.003.py
+python 10_species_random_LV_model+immigration-0-0.005.py
+python 10_species_random_LV_model+immigration-0-0.008.py
+python 10_species_random_LV_model+immigration-0-0.01.py
+python 10_species_random_LV_model+immigration-0-0.03.py
+python 10_species_random_LV_model+immigration-0-0.05.py
+python 10_species_random_LV_model+immigration-0-0.1.py
+python 10_species_random_LV_model+immigration-0-0.5.py
+
